@@ -2,9 +2,14 @@ using System;
 using System.Collections.Generic;
 
 public class AbstractCard {
+	public AbstractCard(Card c) {
+		cards = new List<Card>();
+		cards.Add (c);
+	}
+	private AbstractCard() {}
 	public List<Card> cards {get; private set;}
 
-	public int getValue ()
+	public Card.Face getValue ()
 	{
 		throw new System.Exception ("Not implemented yet!");
 	}

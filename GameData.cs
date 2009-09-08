@@ -7,20 +7,24 @@ public class GameData {
 
 	protected List<Player> players;
 
-	public bool isTableEmpty ()
-	{
-		throw new System.Exception ("Not implemented yet!");
+	public bool isTableEmpty () {
+		return (table.Count == 0);
 	}
-	public List<AbstractCard> getTable ()
-	{
-		throw new System.Exception ("Not implemented yet!");
+	public List<AbstractCard> getTable () {
+		return table;
 	}
-	public void trailCard (Card c)
-	{
-		throw new System.Exception ("Not implemented yet!");
+	public void trailCard (Card c) {
+		table.Add (new AbstractCard(c));
 	}
-	public List<AbstractCard> captureWithCard (Card c)
-	{
-		throw new System.Exception ("Not implemented yet!");
+	public List<AbstractCard> captureWithCard (Card c) {
+		List<AbstractCard> rv = new List<AbstractCard>();
+		foreach (AbstractCard card in table) {
+			if (card.getValue() == c.face)
+				rv.Add(card);
+		}
+		if (rv.Count == 0)
+			throw new Exception("No cards captured");
+		rv.Add (new AbstractCard(c));
+		return rv;
 	}
 }
