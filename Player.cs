@@ -2,15 +2,10 @@ using System;
 using System.Collections.Generic;
 
 public abstract class Player {
-
-	private List<Card> hand;
-
-	protected CardCounter counter = new CardCounter();
-
-	public int getPlayerScore ()
-	{
-		throw new System.Exception ("Not implemented yet!");
+	public Player () {
+		Counter = new CardCounter();
 	}
+
 	public bool hasCard (Card.Face face) {
 		foreach(Card c in hand) {
 			if (c.face == face)
@@ -18,6 +13,9 @@ public abstract class Player {
 		}
 		return false;
 	}
+
 	public abstract void makeMove (GameData game);
 
+	public CardCounter Counter {get; private set;}
+	private List<Card> hand;
 }
