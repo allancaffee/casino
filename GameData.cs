@@ -19,7 +19,7 @@ public class GameData {
 	public List<AbstractCard> captureWithCard (Card c) {
 		List<AbstractCard> rv = new List<AbstractCard>();
 		foreach (AbstractCard card in table) {
-			if (card.getValue() == c.face)
+			if (card.Value == c.face)
 				rv.Add(card);
 		}
 		if (rv.Count == 0)

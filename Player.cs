@@ -11,6 +11,13 @@ public abstract class Player {
 	{
 		throw new System.Exception ("Not implemented yet!");
 	}
+	public bool hasCard (Card.Face face) {
+		foreach(Card c in hand) {
+			if (c.face == face)
+				return true;
+		}
+		return false;
+	}
 	public abstract void makeMove (GameData game);
 
 }
